@@ -1,0 +1,109 @@
+body {
+  background: #f0f0f0;
+  color: #333;
+}
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.layout {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 45px;
+}
+.main-screen {
+  display: flex;
+  height: 30vh;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  border-radius: 40px;
+  background: #e0e0e0;
+  box-shadow: 15px 15px 30px #a8a8a8, -15px -15px 30px #ffffff;
+}
+.rolling-number {
+  font-size: 100px;
+  font-weight: bold;
+}
+.button-compose {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.roll-button {
+  width: 200px;
+  height: 70px;
+  margin-right: 35%;
+  font-size: 1rem;
+  background-color: #ff00b3;
+}
+.new-button {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+.storage-list {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 10px;
+}
+.roll-item {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  border-radius: 59px;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow: 17px 17px 33px #acacac, -17px -17px 33px #ffffff;
+}
+
+/* Button animation */
+/* From Uiverse.io by mi-series */
+.btn {
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ff00b3;
+  min-width: 200px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 16px 20px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.95;
+}
+
+.btn .animation {
+  border-radius: 100%;
+  animation: ripple 0.6s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1),
+      0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1),
+      0 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1),
+      0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1),
+      0 0 0 80px rgba(255, 255, 255, 0);
+  }
+}
