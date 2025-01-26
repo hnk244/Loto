@@ -33,12 +33,12 @@ function App() {
     list: [],
   });
 
-  const handleCacheSetValue = useCallback(
-    () => {
+  // const handleCacheSetValue = useCallback(
+  //   () => {
 
-    },
-    [JSON.stringify(storage)],
-  )
+  //   },
+  //   [JSON.stringify(storage)],
+  // )
 
   const handleGenRandomNumber = useCallback(
     () => {
