@@ -1,6 +1,7 @@
 body {
   background: #f0f0f0;
   color: #333;
+  place-items: unset;
 }
 #root {
   width: 100%;
@@ -9,11 +10,15 @@ body {
 }
 .layout {
   width: 90%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  padding: 20px 45px;
+  gap: 8px;
+  padding: 5px 45px;
+}
+.header-compose{
+  display: flex;
+  justify-content:end;
 }
 .main-screen {
   display: flex;
@@ -31,24 +36,25 @@ body {
 }
 .button-compose {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   gap: 10px;
 }
 .roll-button {
   width: 200px;
   height: 70px;
-  margin-right: 35%;
   font-size: 1rem;
   background-color: #ff00b3;
 }
 .new-button {
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
+  width: fit-content;
+  background-color: #a8a8a861;
+  height: 50px;
+  margin-bottom: 30px;
+  color: #343434ec;
 }
 .storage-list {
   display: grid;
-  grid-template-columns: repeat(20, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 10px;
 }
 .roll-item {
@@ -105,5 +111,27 @@ body {
     box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1),
       0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1),
       0 0 0 80px rgba(255, 255, 255, 0);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .storage-list {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .rolling-number {
+    font-size: 2rem;
+  }
+  .roll-button {
+    width: 100px;
+    height: 50px;
+    font-size: 0.5rem;
+    margin-right: 0;
+  }
+  .new-button {
+    width: fit-content;
+    height: 40px;
+    border-radius: 16px;
+    font-size: 12px;
+    margin-bottom: 1ch;
   }
 }

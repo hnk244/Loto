@@ -67,6 +67,9 @@ function App() {
 
   return (
       <div className='layout'>
+        <div className='header-compose'>
+        <button onClick={handleNewGame} className=' new-button'>Ván mới</button>
+        </div>
         <div className='main-screen'>
           <div className='rolling-number'>
             {!storage.current?"Đợi bốc số":storage.current}
@@ -74,7 +77,6 @@ function App() {
         </div>
         <div className='button-compose'>
           <button onClick={handlRollSet} className='roll-button btn'><i className="animation"></i>Bốc số<i className="animation"></i></button>
-          <button onClick={handleNewGame} className=' new-button'>Ván mới</button>
         </div>
         <div className='storage-list'>{
           storage.list.map((item, index) => <RollItem key={index} value={item} />)}</div>
