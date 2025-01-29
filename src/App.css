@@ -16,9 +16,18 @@ body {
   gap: 8px;
   padding: 5px 45px;
 }
-.header-compose{
+.header-compose {
   display: flex;
-  justify-content:end;
+  justify-content: end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.selection {
+  height: 50px;
+  width: 120px;
+  text-align: center;
+  border-radius: 16px;
+  color: gray;
 }
 .main-screen {
   display: flex;
@@ -115,6 +124,12 @@ body {
 }
 
 @media screen and (max-width: 767px) {
+  .header-compose {
+    margin-bottom: 20px;
+  }
+  .header-compose .selection {
+    flex: 1 1 auto;
+  }
   .storage-list {
     grid-template-columns: repeat(5, 1fr);
   }

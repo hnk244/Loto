@@ -1,6 +1,6 @@
-export const RollItem = ({ key, value }: { key: any, value: number }) => {
+export const RollItem = ({ keyValue, value }: { keyValue: any, value: number }) => {
     return (
-        <div className="roll-item" key={key}>
+        <div className="roll-item" key={keyValue}>
             <p>{value}</p>
         </div>
     )
