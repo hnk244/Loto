@@ -1,5 +1,5 @@
 
-import { useCallback, useMemo, useReducer, useState } from 'react';
+import { useCallback, useMemo, useReducer, useRef, useState } from 'react';
 import './App.css';
 import { RollItem } from './RollItem';
 import { speakVietnamese } from './textToSpeech';
@@ -10,7 +10,7 @@ import YouTubeEmbed from './YoutubeEmbed';
 function App() {
   const musicList = useMemo(() => ["atq9S7pp1rQ", "vaBpLhFJUh0", 'zu6cyBdWsWQ', 'y_Qb-mSDSrI', 'Jen82pHTyik'], [])
   const [currentMusic, setCurrentMusic] = useState(musicList[0])
-
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const [storage, dispatch] = useReducer((state: {
     current: number,
@@ -73,6 +73,19 @@ function App() {
     },
     [JSON.stringify(storage)],
   )
+  const handleApplyMusic = (url?: string) => {
+    if (!url) {
+      alert('No URL provided');
+      return;
+    } else {
+      const videoId = url.split('v=')[1]?.split('&')[0];
+      if (!videoId) {
+        alert('Invalid URL');
+        return;
+      }
+      setCurrentMusic(videoId)
+    }
+  }
 
   return (
     <div className='layout'>
@@ -86,6 +99,11 @@ function App() {
             })
           }
         </select>
+        <div className="divider"></div>
+        <div className='input-compose'>
+          <input type="url" ref={inputRef} placeholder='Nhập URL video nhạc Youtube' />
+          <button onClick={() => handleApplyMusic(inputRef.current?.value)} >Apply</button>
+        </div>
       </div>
       <div className='main-screen'>
         <div className='rolling-number'>
