@@ -2,7 +2,8 @@ body {
   background: #f0f0f0;
   color: #333;
   place-items: unset;
-  font-family: "Be Vietnam Pro", sans-serif,Georgia, 'Times New Roman', Times, serif;
+  font-family: "Be Vietnam Pro", sans-serif, Georgia, "Times New Roman", Times,
+    serif;
   font-size: 14px;
 }
 #root {
@@ -20,6 +21,9 @@ body {
   padding: 15px 45px;
   width: 80%;
 }
+.notification {
+  display: none;
+}
 .header-compose {
   display: flex;
   justify-content: end;
@@ -27,6 +31,9 @@ body {
   flex-wrap: wrap;
   margin-bottom: 30px;
   align-items: center;
+  border-top: 1px solid #a9a9a9c3;
+  padding-top: 8px;
+
 }
 .selection {
   height: 50px;
@@ -64,7 +71,7 @@ body {
   width: 65%;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border-radius: 40px;
   background: #e0e0e0;
   box-shadow: 15px 15px 30px #a8a8a8, -15px -15px 30px #ffffff;
@@ -153,10 +160,28 @@ body {
   }
 }
 
+@keyframes floatHorizontal {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
 @media screen and (max-width: 767px) {
   .layout {
     padding-top: 15px;
     align-items: center;
+  }
+  .notification {
+    display: inline;
+    width: 100%;
+    text-align: start;
+    font-size: 8px;
+    color: red;
+    animation: floatHorizontal 10s linear infinite;
   }
   .main-screen {
     height: 20vh;

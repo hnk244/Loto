@@ -78,17 +78,27 @@ function App() {
       alert('No URL provided');
       return;
     } else {
-      const videoId = url.split('v=')[1]?.split('&')[0];
+      let videoId = '';
+      if (url.includes('youtu.be')) {
+        videoId = url.split('youtu.be/')[1]?.split('&')[0];
+      } else {
+        videoId = url.split('v=')[1]?.split('&')[0];
+      }
       if (!videoId) {
         alert('Invalid URL');
         return;
       }
       setCurrentMusic(videoId)
+      if (inputRef.current) {
+        inputRef.current.value = '';
+      }
+
     }
   }
 
   return (
     <div className='layout'>
+      <div className="notification">Nếu trên điện thoại bấm 2 lần vào nút 'Play music ▷' để chơi nhạc.</div>
       <div className='header-compose'>
         <button onClick={handleNewGame} className=' new-button'>Ván mới</button>
         <YouTubeEmbed videoId={currentMusic} />
